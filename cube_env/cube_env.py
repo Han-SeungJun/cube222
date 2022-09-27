@@ -7,7 +7,7 @@ from gym.envs.classic_control import rendering
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname("cube2by2"))))
 import cube22
-from cube22 import *
+# from cube22 import *
 import clear_state
 import gold_state_adjust
 
