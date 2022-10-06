@@ -30,8 +30,6 @@ implementation_frame.SetSize(wx.Size(200, 250))
 implementation_frame.SetPosition(wx.Point(700, 250))
 implementation_frame.SetWindowStyle(wx.CAPTION)
 
-
-
 # 메인 프레임(메인 리모콘 윈도우)
 main_frame.SetPosition(wx.Point(650, 200))
 main_frame.SetSize(wx.Size(470, 330))
@@ -40,17 +38,8 @@ main_frame.SetSize(wx.Size(470, 330))
 start_frame.SetPosition(wx.Point(450, 400))
 start_frame.SetWindowStyle(wx.DEFAULT_FRAME_STYLE)
 start_frame.SetBackgroundColour(wx.WHITE)
-#for x in range(254):
-#    for y in range(254):
-#        for z in range(254):
-#            time.sleep(0.2)
-#            frame2.SetBackgroundColour(wx.Colour(x, y, z, 0))
-#            frame2.Refresh()
-
-
 
 # 큐브윗면 프레임
-
 Cube_up.SetSize(wx.Size(182, 182))
 Cube_up.SetPosition(wx.Point(250, 70))
 Cube_up.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
@@ -58,35 +47,30 @@ Cube_up.SetWindowStyle(wx.SYSTEM_MENU)
 
 
 # 큐브앞면 프레임
-
 Cube_front.SetSize(wx.Size(182, 182))
 Cube_front.SetPosition(wx.Point(250, 250))
 Cube_front.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
 Cube_front.SetWindowStyle(wx.SYSTEM_MENU)
 
 # 큐브밑면 프레임
-
 Cube_down.SetSize(wx.Size(182, 182))
 Cube_down.SetPosition(wx.Point(250, 430))
 Cube_down.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
 Cube_down.SetWindowStyle(wx.SYSTEM_MENU)
 
 # 큐브오른쪽면 프레임
-
 Cube_right.SetSize(wx.Size(182, 182))
 Cube_right.SetPosition(wx.Point(430, 250))
 Cube_right.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
 Cube_right.SetWindowStyle(wx.SYSTEM_MENU)
 
 # 큐브왼쪽면 프레임
-
 Cube_left.SetSize(wx.Size(182, 182))
 Cube_left.SetPosition(wx.Point(70, 250))
 Cube_left.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
 Cube_left.SetWindowStyle(wx.SYSTEM_MENU)
 
 # 큐브뒷면 프레임
-
 Cube_back.SetSize(wx.Size(182, 182))
 Cube_back.SetPosition(wx.Point(250, 625))
 Cube_back.SetBackgroundColour(wx.Colour(100, 100, 100, 0))
@@ -95,10 +79,9 @@ Cube_back.SetWindowStyle(wx.SYSTEM_MENU)
 
 
 ### 시작화면 셋팅
-
 btn = wx.Button(start_frame, label = "시작")
 def OnClick(event):
-    wx.MessageBox("큐브 2.2ver 프로그램을 시작합니다!", "알림", wx.OK)
+    wx.MessageBox("222 큐브 프로그램을 시작합니다!", "알림", wx.OK)
     start_frame.Close()
     main_frame.Show(True)
     Cube_up.Show(True)
@@ -111,8 +94,7 @@ btn.Bind(wx.EVT_BUTTON, OnClick)
 
 empty1 = wx.StaticText(start_frame, label = " ")
 empty2 = wx.StaticText(start_frame, label = " ")
-lbl1 = wx.StaticText(start_frame, label = "큐브 2.2 \n")
-lbl2 = wx.StaticText(start_frame, label = "Cube 2.2 ver")
+lbl1 = wx.StaticText(start_frame, label = "222 큐브 \n")
 lbl3 = wx.StaticText(start_frame, label = "Made By 한승준")
 
 box = wx.BoxSizer(wx.VERTICAL)
@@ -121,12 +103,10 @@ box.Add(empty1, border = 50, flag = wx.TOP)
 box.Add(lbl1, flag = wx.ALIGN_CENTER)
 box.Add(btn, flag = wx.ALIGN_CENTER)
 box.Add(empty2, border = 40, flag = wx.TOP)
-box.Add(lbl2, flag = wx.ALIGN_RIGHT)
 box.Add(lbl3, flag = wx.ALIGN_RIGHT)
 
 
 # 큐브윗면 그래픽 디자인
-
 def On_Up_Paint(event):
     dc = wx.PaintDC(Cube_up)
     dc.SetPen(wx.BLACK_PEN)
@@ -142,7 +122,6 @@ def On_Up_Paint(event):
 Cube_up.Bind(wx.EVT_PAINT, On_Up_Paint)
 
 # 큐브앞면 그래픽 디자인
-
 def On_FRONT_Paint(event):
     dc = wx.PaintDC(Cube_front)
     dc.SetPen(wx.BLACK_PEN)
@@ -158,7 +137,6 @@ def On_FRONT_Paint(event):
 Cube_front.Bind(wx.EVT_PAINT, On_FRONT_Paint)
 
 # 큐브밑면 그래픽 디자인
-
 def On_DOWN_Paint(event):
     dc = wx.PaintDC(Cube_down)
     dc.SetPen(wx.BLACK_PEN)
@@ -174,7 +152,6 @@ def On_DOWN_Paint(event):
 Cube_down.Bind(wx.EVT_PAINT, On_DOWN_Paint)
 
 # 큐브오른쪽면 디자인
-
 def On_RIGHT_Paint(event):
     dc = wx.PaintDC(Cube_right)
     dc.SetPen(wx.BLACK_PEN)
@@ -190,7 +167,6 @@ def On_RIGHT_Paint(event):
 Cube_right.Bind(wx.EVT_PAINT, On_RIGHT_Paint)
 
 # 큐브왼쪽면 디자인
-
 def On_LEFT_Paint(event):
     dc = wx.PaintDC(Cube_left)
     dc.SetPen(wx.BLACK_PEN)
@@ -206,7 +182,6 @@ def On_LEFT_Paint(event):
 Cube_left.Bind(wx.EVT_PAINT, On_LEFT_Paint)
 
 # 큐브뒷면 디자인
-
 def On_BACK_Paint(event):
     dc = wx.PaintDC(Cube_back)
     dc.SetPen(wx.BLACK_PEN)
@@ -221,8 +196,7 @@ def On_BACK_Paint(event):
 
 Cube_back.Bind(wx.EVT_PAINT, On_BACK_Paint)
 
-### 메인 리모콘 윈도우 셋팅 (버튼 & 설명)
-
+# 메인 리모콘 윈도우 셋팅 (버튼 & 설명)
 panel_Btn = wx.Panel(main_frame)
 U_R = wx.Button(panel_Btn, label = "U")
 U_L = wx.Button(panel_Btn, label = "U'")
@@ -367,7 +341,6 @@ def spin_All():
     Cube_down.Refresh()
     
 # 키보드 이벤트 설정(단축키 지정 및 키보드 입력 이벤트)
-
 def SAVE():
     dialog1 = wx.MessageDialog(main_frame, "저장하시겠습니까?", "저장", wx.CANCEL)
     if dialog1.ShowModal() == wx.ID_OK:
@@ -521,7 +494,6 @@ def on_Key(event):
 main_frame.Bind(wx.EVT_KEY_DOWN, on_Key)
 
 # 버튼 이벤트 설정
-
 def onU_R(event):
     lumix.upRight()
     Cube_up.Bind(wx.EVT_PAINT, On_Up_Paint)
@@ -577,7 +549,6 @@ def onD_L(event):
     Cube_back.Refresh()
     Cube_down.Refresh()
 D_L.Bind(wx.EVT_BUTTON, onD_L)
-
 
 def onR_R(event):
     lumix.rightRight()
@@ -804,11 +775,6 @@ option = wx.Menu()
 menubar.Append(option, "Option")
 
 #메뉴-파일
-
-about = wx.MenuItem(id = wx.ID_ANY, text = '소개')
-menu.Append(about)
-menu.AppendSeparator()
-
 save = wx.MenuItem(id = wx.ID_ANY, text = "저장(ctrl+S)")
 menu.Append(save)
 menu.AppendSeparator()
@@ -822,7 +788,6 @@ menu.Append(quit)
 menu.AppendSeparator()
     
 #메뉴-편집
-
 u_r = wx.MenuItem(id = wx.ID_ANY, text = "윗면을 시계방향으로 회전(U)")
 edit.Append(u_r)
 edit.AppendSeparator()
@@ -897,7 +862,6 @@ edit.AppendSeparator()
 
 
 #메뉴-도구
-                  
 mix = wx.MenuItem(id = wx.ID_ANY, text = '큐브 섞기(ctrl+M)')
 tool.Append(mix)
 tool.AppendSeparator()
@@ -905,7 +869,6 @@ tool.AppendSeparator()
 clean = wx.MenuItem(id = wx.ID_ANY, text = '원상태로 되돌리기(ctrl+C)')
 tool.Append(clean)
 tool.AppendSeparator()
-
 
 #메뉴-옵션
 visible = wx.MenuItem(id = wx.ID_ANY, text = '큐브그래픽 화면설정')
@@ -920,11 +883,6 @@ main_frame.SetMenuBar(menubar)
 
 
 #메뉴-파일(세부설정)
-
-def onAbout(event):
-    wx.MessageBox("큐브를 회전시켜 맞추는 파이썬기반의 프로그램입니다.\n제작자 : 한승준\n1.0버전 : 큐브 환경 구현 및 조작함수 제작 (2019.2.23 ~ 2019.3.)\n2.0.0버전 : GUI 구현 (2019.4.1 ~ 2019.4.7)\n2.1버전 : 저장 및 불러오기 구현 (2021.7.14 ~ 2021.7.19)\n2.2버전 : 키보드 조작 및 단축키 구현 (2021.7.20 ~ 2021.7.21)", "알림", wx.OK)
-main_frame.Bind(wx.EVT_MENU, onAbout, about)
-
 def onSave(event):
     lumix.saveCube()
     wx.MessageBox("저장했습니다!", "알림", wx.OK)
@@ -951,7 +909,6 @@ main_frame.Bind(wx.EVT_MENU, onQuit, quit)
     
     
 #메뉴-편집(세부설정)
-
 main_frame.Bind(wx.EVT_MENU, onU_R, u_r)
 main_frame.Bind(wx.EVT_MENU, onU_L, u_l)
 main_frame.Bind(wx.EVT_MENU, onD_R, d_r)
@@ -973,7 +930,6 @@ main_frame.Bind(wx.EVT_MENU, onZ_L, z_l)
                   
     
 #메뉴-도구(세부설정)
-    
 def onMix(event):
     lumix.defNumber()
     for mix_num in range(MIX_NUM):
