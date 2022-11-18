@@ -24,15 +24,13 @@ def _goldlist():
             sample.xRight()
             gold_state_list.append(cube_state_array(sample.myCube))
         sample.yRight()
-
-    for zxzx_rotate in range(2):
-        sample.zRight()
+    
+    sample.zRight()
+    for z_rotate in range(2):
         for x_rotate in range(4):
             sample.xRight()
             gold_state_list.append(cube_state_array(sample.myCube))
         sample.zRight()
-        sample.xRight()
-        gold_state_list.append(cube_state_array(sample.myCube))
-    gold_state_list.pop(20)
+        sample.zRight()
     
     return gold_state_list
