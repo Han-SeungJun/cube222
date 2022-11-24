@@ -11,7 +11,7 @@ import cube22
 import clear_state
 import gold_state_adjust
 
-MIX_NUM = 60
+MIX_NUM = 20
 TIME = 0.01
 
 class CubeEnv(discrete.DiscreteEnv):
@@ -85,13 +85,7 @@ class CubeEnv(discrete.DiscreteEnv):
         self.nS = num_floors * num_pieces * num_positions
         self.nA = len(self.action_defs)
         self.state = clear_state.cube_state_array(cube_obj.myCube)
-#         self.cube2state_dict = {(floors, pieces, positions) : int(((floors*nS/2) + (pieces*nS/8)+ (positions*nS/nS)))
-#                                 for positions in range(3)for pieces in range(4) for floors in range(2)}
-#         self.state2cube_dict = {int(((floors*nS/2) + (pieces*nS/8)+ (positions*nS/nS))) : (floors, pieces, positions)
-#                                 for positions in range(3) for pieces in range(4) for floors in range(2)}
         
-        # 골드상태
-#         gold_cell = cube_obj.clearCube()
         gold_cell = clear_state.cube_state_array(sample_cube.myCube)
         
         # 함정상태는 없음
@@ -164,24 +158,18 @@ class CubeEnv(discrete.DiscreteEnv):
             
     def step(self, action_num, _object):
         done = False
-        if not gold_state_adjust.state_judgement(_object.myCube):
+        if not gold_state_adjust.state_judgement(_object):
             self.state2action(action_num, _object)
+            self.state = clear_state.cube_state_array(_object.myCube)
             done = True
             
         if not done:
-            reward = 20.0
+            reward = 1.0
         elif self.steps_beyond_done is None:
             # Cube just uncomplete!
             self.steps_beyond_done = 0
             reward = 0.0
         else:
-            if self.steps_beyond_done == 0:
-                logger.warn(
-                    "You are calling 'step()' even though this "
-                    "environment has already returned done = True. You "
-                    "should always call 'reset()' once you receive 'done = "
-                    "True' -- any further steps are undefined behavior."
-                )
             self.steps_beyond_done += 1
             reward = 0.0
 
