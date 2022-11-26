@@ -1,25 +1,18 @@
 import numpy as np
 from gym.envs.toy_text import discrete
 from collections import defaultdict
-import time
 import os
 from gym.envs.classic_control import rendering
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname("cube2by2"))))
 import cube22
-# from cube22 import *
+from cube22 import *
 import clear_state
 import gold_state_adjust
 
-MIX_NUM = 20
-TIME = 0.01
-
-class CubeEnv(discrete.DiscreteEnv):
-    def __init__(self, mix_num = MIX_NUM, time = TIME,
-                 num_floors = 2, num_pieces = 4,
+class CubeEnv():
+    def __init__(self, num_floors = 2, num_pieces = 4,
                  num_positions = 3, num_colors = 6):
-        self.mix_num = MIX_NUM
-        self.time = TIME
         self.num_floors = num_floors
         self.num_pieces = num_pieces
         self.num_positions = num_positions
