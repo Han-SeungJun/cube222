@@ -22,6 +22,11 @@ class Cube2(metaclass = ABCMeta):
         pass
     
     @abstractmethod
+    def cleanCube(self):
+        """큐브를 처음 상태로 되돌린다."""
+        pass
+    
+    @abstractmethod
     def elementClockwise(self, floor, piece):
         """큐브의 모서리조각을 시계방향으로 돌려준다.
         입력방식 : elementClockwise(floor, piece)"""
@@ -179,6 +184,12 @@ class realCube(Cube2):
         cubeRegister = [[None, None, None], [None, None, None],
                         [None, None, None], [None, None, None]]
         pieceRegister = [None, None, None]
+        
+    def cleanCube(self):
+        self.ROTATION_COUNT = 0
+        self.ROTATION_SEQUENCE = []
+        self.myCube = [[[1, 2, 3], [1, 3, 4], [1, 5, 2], [1, 4, 5]],
+                      [[6, 3, 2], [6, 4, 3], [6, 2, 5], [6, 5, 4]]]
 
     def elementClockwise(self, floor, piece):
         """큐브의 모서리조각을 시계방향으로 돌려준다.
