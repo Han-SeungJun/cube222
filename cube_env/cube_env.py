@@ -143,7 +143,7 @@ class CubeEnv():
             _object.backRight()
             
     def reset(self, _object):
-        _object.createCube()
+        _object.cleanCube()
         _object.mixCube()
         self.state = clear_state.cube_state_array(_object.myCube)
         self.steps_beyond_done = None
